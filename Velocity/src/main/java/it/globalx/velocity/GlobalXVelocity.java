@@ -2,7 +2,6 @@ package it.globalx.velocity;
 
 import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.PacketEventsAPI;
-import com.github.retrooper.packetevents.event.PacketListenerPriority;
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.event.Subscribe;
@@ -18,10 +17,10 @@ import dev.dejvokep.boostedyaml.settings.loader.LoaderSettings;
 import dev.dejvokep.boostedyaml.settings.updater.UpdaterSettings;
 import io.github.retrooper.packetevents.velocity.factory.VelocityPacketEventsBuilder;
 import it.globalx.velocity.module.Module;
+import it.globalx.velocity.module.implementations.alert.AlertModule;
 import it.globalx.velocity.module.implementations.chatfiltering.ChatFilteringModule;
 import it.globalx.velocity.module.implementations.playerformat.PlayerFormatModule;
 import it.globalx.velocity.module.implementations.privatemessages.PrivateMessagesModule;
-import it.globalx.velocity.module.implementations.removemessage.listener.PacketEventsPacketListener;
 import it.globalx.velocity.module.implementations.scheduledmessages.ScheduledMessagesModule;
 import it.globalx.velocity.module.implementations.staffchat.StaffChatModule;
 import it.globalx.velocity.utils.UpdateChecker;
@@ -81,7 +80,8 @@ public class GlobalXVelocity {
             config.update();
             config.save();
         } catch (Exception e) {
-            logger.error("Failed to load config.yml", e);
+            logger.error("Failed to load config.yml, disabling GlobalX", e);
+            return;
         }
 
 
@@ -90,7 +90,8 @@ public class GlobalXVelocity {
                 new PrivateMessagesModule(),
                 new StaffChatModule(),
                 new ChatFilteringModule(),
-                new PlayerFormatModule()
+                new PlayerFormatModule(),
+                new AlertModule()
         ).forEach(module -> {
             module.enable(config.getSection(Route.from(module.getConfigPath())));
 

@@ -4,8 +4,6 @@ import it.globalx.velocity.GlobalXVelocity;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.Scanner;
 import java.util.concurrent.CompletableFuture;
@@ -29,16 +27,6 @@ public class UpdateChecker {
                 }
             } catch (IOException e) {
                 GlobalXVelocity.getInstance().getLogger().info("Unable to check for updates: " + e.getMessage());
-            }
-        });
-    }
-
-    public void checkVersion(Method method) {
-        this.getVersion((version) -> {
-            try {
-                method.invoke(version);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new RuntimeException(e);
             }
         });
     }

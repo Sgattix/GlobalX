@@ -44,7 +44,7 @@ public class MsgCMD extends BaseCommand {
             return;
         }
 
-        if (target.getUniqueId() == player.getUniqueId()) {
+        if (target.getUniqueId().equals(player.getUniqueId())) {
             player.sendMessage(ChatUtils.colorAndGetComponent(cannotSendMessageToYourself));
             return;
         }

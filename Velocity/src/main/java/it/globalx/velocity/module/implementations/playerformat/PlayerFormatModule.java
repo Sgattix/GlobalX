@@ -5,6 +5,7 @@ import it.globalx.velocity.module.Module;
 import it.globalx.velocity.module.implementations.playerformat.format.PlayerFormat;
 import it.globalx.velocity.module.implementations.playerformat.format.causes.FormatCause;
 import it.globalx.velocity.module.implementations.playerformat.format.causes.type.FormatCausesType;
+import it.globalx.velocity.module.implementations.playerformat.listener.FormatListener;
 import it.globalx.velocity.module.implementations.playerformat.manager.FormatManager;
 import lombok.Getter;
 
@@ -50,6 +51,8 @@ public class PlayerFormatModule extends Module {
 
             formatManager.addFormat(name, new PlayerFormat(chatFormat, tabFormat, causes));
         }
+
+        plugin().getProxyServer().getEventManager().register(plugin(), new FormatListener(this));
     }
 
     @Override

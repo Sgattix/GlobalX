@@ -6,6 +6,7 @@ import it.globalx.velocity.module.implementations.chatfiltering.check.implementa
 import it.globalx.velocity.module.implementations.chatfiltering.check.implementation.badwords.word.BadWord;
 import it.globalx.velocity.module.implementations.chatfiltering.check.implementation.badwords.word.action.IntentAction;
 import it.globalx.velocity.module.implementations.chatfiltering.check.implementation.domain.DomainCheck;
+import it.globalx.velocity.module.implementations.chatfiltering.listener.ChatFilterListener;
 import it.globalx.velocity.module.implementations.chatfiltering.utils.FilterUtils;
 import lombok.Getter;
 
@@ -42,7 +43,9 @@ public class ChatFilteringModule extends Module {
         badWordsCheck = new BadWordsCheck(badWords);
         domainCheck = new DomainCheck();
 
-        new FilterUtils(this);
+        FilterUtils filterUtils = new FilterUtils(this);
+
+        plugin().getProxyServer().getEventManager().register(plugin(), new ChatFilterListener(filterUtils));
     }
 
     @Override

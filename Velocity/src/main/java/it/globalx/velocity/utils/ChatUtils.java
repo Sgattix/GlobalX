@@ -3,7 +3,6 @@ package it.globalx.velocity.utils;
 import dev.dejvokep.boostedyaml.route.Route;
 import it.globalx.velocity.GlobalXVelocity;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 
@@ -13,13 +12,16 @@ import java.util.List;
 import java.util.Set;
 
 public class ChatUtils {
-    private static MiniMessage miniMessage = MiniMessage.miniMessage();
-    private static final String prefix = GlobalXVelocity.getInstance().getConfig().getString(Route.from("prefix"));
+
+    private static String prefix() {
+        String prefix = GlobalXVelocity.getInstance().getConfig().getString(Route.from("prefix"));
+        return prefix == null ? "" : prefix;
+    }
 
     public static Component colorAndGetComponent(String message) {
         return LegacyComponentSerializer.legacyAmpersand().deserialize(
                 message
-                        .replace("%prefix%", prefix)
+                        .replace("%prefix%", prefix())
         );
     }
 

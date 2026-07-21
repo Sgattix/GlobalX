@@ -1,5 +1,6 @@
 package it.globalx.velocity.module.implementations.playerformat.listener;
 
+import com.velocitypowered.api.event.PostOrder;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.player.PlayerChatEvent;
 import com.velocitypowered.api.event.player.ServerConnectedEvent;
@@ -24,15 +25,24 @@ public class FormatListener {
         //todo: setPlayerListName with Spigot Bridge
     }
 
-    @Subscribe
+    // Runs late so it can honour the chat filter's decision (EARLY listener)
+    @Subscribe(order = PostOrder.LATE)
     public void onPlayerChat(PlayerChatEvent event) {
         Player player = event.getPlayer();
+
+        // The chat filter blocked the message: drop it instead of re-broadcasting
+        if (!event.getResult().isAllowed()) {
+            return;
+        }
 
         PlayerFormat playerFormat = playerFormatModule.getFormatManager().getFormat(player).orElse(null);
 
         if (playerFormat == null) {
             return;
         }
+
+        // Use the filtered message if the chat filter rewrote it, else the original
+        String rawMessage = event.getResult().getMessage().orElse(event.getMessage());
 
         event.setResult(PlayerChatEvent.ChatResult.denied());
 
@@ -65,7 +75,7 @@ public class FormatListener {
 
         String chatFormat = playerFormat.chatFormat()
                 .replace("%player%", player.getUsername())
-                .replace("%message%", event.getMessage())
+                .replace("%message%", rawMessage)
                 .replace("%luckperms_prefix%", prefix)
                 .replace("%luckperms_suffix%", suffix);
 

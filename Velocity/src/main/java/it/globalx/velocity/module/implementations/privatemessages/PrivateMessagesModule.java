@@ -24,7 +24,7 @@ public class PrivateMessagesModule extends Module {
                 section.getString("Msg.CannotSendMessageToYourself"),
                 section.getString("Msg.MustSpecifyMessage"),
                 section.getString("Msg.SenderFormat"),
-                section.getString("Msg.ReceiverFormat")
+                section.getString("Msg.TargetFormat")
         ));
         if (section.getBoolean("Reply.Enabled", true)) {
             velocityCommandManager.registerCommand(new ReplyCMD(
@@ -34,7 +34,7 @@ public class PrivateMessagesModule extends Module {
                     section.getString("Reply.MustSpecifyMessage"),
                     section.getString("Reply.NoOneToReplyTo"),
                     section.getString("Reply.SenderFormat"),
-                    section.getString("Reply.ReceiverFormat")
+                    section.getString("Reply.TargetFormat")
             ));
         }
     }

@@ -51,7 +51,7 @@ StaffChat:
 PrivateMessages:
   Enabled: true
   Msg:
-    Permission: "globalx.msg.use",
+    Permission: "globalx.msg.use"
     NoPermissionMessage: "%prefix% &cYou don't have permission to use this command!"
     WrongUsage: "%prefix% &cWrong usage! Correct usage: /msg <player> <message>"
     TargetIsNull: "%prefix% &cThe player you are trying to message is not online!"
@@ -61,7 +61,7 @@ PrivateMessages:
     TargetFormat: "&8[&e%sender% &7-> &6Me&8]&7 %message%"
   Reply:
     Enabled: true
-    Permission: "globalx.reply.use",
+    Permission: "globalx.reply.use"
     NoOneToReplyTo: "%prefix% &cThere is no one to reply to!"
     NoPermissionMessage: "%prefix% &cYou don't have permission to use this command!"
     MustSpecifyMessage: "%prefix% &cYou must specify a message to send!"
@@ -83,3 +83,16 @@ PlayerFormat:
       Tab: "&c[OWNER]&7 %player%&r [%luckperms_suffix%]"
       Causes:
         - "[group] owner" # group, permission
+
+Alerts:
+  Enabled: true
+  Permission: "globalx.alert.use"
+  NoPermission: "%prefix% &cYou don't have permission to use this command!"
+  WrongUsage: "%prefix% &cWrong usage! Correct usage: /alert <group> <message>"
+  InvalidGroup: "%prefix% &cThat server group doesn't exist!"
+  MustSpecifyMessage: "%prefix% &cYou must specify a message to send!"
+  Format: "%prefix% &c[ALERT]&7 %player%&7: &f%message%"
+  Groups:
+    bedwars: ["BedWars-Lobby*", "Bedwars-game-*"] # All of the servers that starts with "BedWars-Lobby" or "Bedwars-Game-"
+    arena: ["arena"] # Only the server "arena"
+    test: ["***", "arena"] # All Servers except arena

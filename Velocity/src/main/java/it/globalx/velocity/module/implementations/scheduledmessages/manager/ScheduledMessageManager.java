@@ -17,6 +17,11 @@ public class ScheduledMessageManager {
 
     public ScheduledMessageManager(Module module, Section section) {
         section.getKeys().forEach(name -> {
+            // Skip scalar keys like "enabled"; only nested sections describe a message
+            if (!section.isSection(name.toString())) {
+                return;
+            }
+
             String message = section.getString(name + ".Message");
             int timeoutSeconds = section.getInt(name + ".Timeout");
             boolean repeat = section.getBoolean(name + ".Repeat");
@@ -33,7 +38,10 @@ public class ScheduledMessageManager {
             }
 
             boolean actionEnabled = section.getBoolean(name + ".Click.Enabled");
-            ClickEvent.Action action = Enums.getIfPresent(ClickEvent.Action.class, section.getString(name + ".Click.Action")).orNull();
+            String actionName = section.getString(name + ".Click.Action");
+            ClickEvent.Action action = actionName == null
+                    ? null
+                    : Enums.getIfPresent(ClickEvent.Action.class, actionName).orNull();
             String actionValue = section.getString(name + ".Click.Value");
 
             boolean hoverEnabled = section.getBoolean(name + ".Hover.Enabled");

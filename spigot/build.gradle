@@ -10,6 +10,12 @@ repositories {
     maven {
         url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
     }
+    // Serves net.md-5:bungeecord-chat:1.8-SNAPSHOT (transitive dep of spigot-api 1.8.8),
+    // which is no longer on oss.sonatype.org after its 2025 shutdown.
+    maven {
+        name = "papermc"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
     maven {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
@@ -23,8 +29,8 @@ dependencies {
     implementation 'com.github.stefvanschie.inventoryframework:IF:0.10.17'
 
 
-    compileOnly 'org.projectlombok:lombok:1.18.22'
-    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
 }
 
 def targetJavaVersion = 8

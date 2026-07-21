@@ -30,7 +30,6 @@ public class DomainCheck extends Check {
             "http://",
             "https://",
             ".eu",
-            ".gg",
             ".com",
             ".co.uk",
             ".net",

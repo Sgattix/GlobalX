@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.function.Consumer;
 
-public class GlobalXSocket {
+public class     GlobalXSocket {
 
     private final Socket socket;
     private final BufferedReader in;
