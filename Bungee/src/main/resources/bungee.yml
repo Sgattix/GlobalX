@@ -1,0 +1,4 @@
+name: Bungee
+main: it.globalx.bungee.GlobalXBungee
+version: '${version}'
+author: GlobalX

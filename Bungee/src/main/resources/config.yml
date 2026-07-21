@@ -1,0 +1,98 @@
+file-version: 1 # Do not touch
+#    ________      __          __   _  __
+#   / ____/ /___  / /_  ____ _/ /  | |/ /
+#  / / __/ / __ \\/ __ \\/ __ `/ /   |   /
+# / /_/ / / /_/ / /_/ / /_/ / /   /   |
+# \\____/_/\\____/_.___/\\__,_/_/   /_/|_|
+#
+# Main Config
+# Thanks for using GlobalX!
+
+prefix: "&b&lGLOBALX &7»"
+
+ScheduledMessages:
+  enabled: true
+  DiscordServer:
+    Message: "\n%prefix% &fRemember to join our Discord Server at &9dsc.gg/globalx-discord\n"
+    Timeout: 300 # in seconds, if repeat is true, this is the time between messages, if repeat is false, this is the time before the message is sent
+    Repeat: true
+    Servers: ["*"] # All servers
+    Click:
+      Enabled: true
+      Action: "OPEN_URL" # "NULL", "OPEN_URL", "OPEN_FILE", "RUN_COMMAND", "SUGGEST_COMMAND", "CHANGE_PAGE", "COPY_TO_CLIPBOARD
+      Value: "https://dsc.gg/globalx-discord"
+    Hover:
+      Enabled: true
+      Content:
+        - "Click to join our discord server!"
+  Reviews:
+    Message: "\n%prefix% &fLeave a &e5-star review &fon our plugin\n"
+    Timeout: 120
+    Repeat: true
+    Servers: ["*"] # All servers
+    Click:
+      Enabled: true
+      Action: "OPEN_URL"
+      Value: "https://www.spigotmc.org/resources/⭐-globalx-easiest-globalchat-plugin-on-spigotmc.102941/reviews#review-0"
+    Hover:
+      Enabled: true
+      Content:
+        - "Click to leave a review!"
+  # Add more scheduled messages here if needed
+
+StaffChat:
+  Enabled: true
+  Permission: "globalx.staffchat.use"
+  NoPermission: "%prefix% &cYou don't have permission to use this command!"
+  StaffChatEnabled: "%prefix% &aStaffChat enabled!"
+  StaffChatDisabled: "%prefix% &cStaffChat disabled!"
+  StaffChatFormat: "&c[StaffChat - %server%]&7 %player%&7: &f%message%"
+
+PrivateMessages:
+  Enabled: true
+  Msg:
+    Permission: "globalx.msg.use"
+    NoPermissionMessage: "%prefix% &cYou don't have permission to use this command!"
+    WrongUsage: "%prefix% &cWrong usage! Correct usage: /msg <player> <message>"
+    TargetIsNull: "%prefix% &cThe player you are trying to message is not online!"
+    CannotSendMessageToYourself: "%prefix% &cYou cannot send a message to yourself!"
+    MustSpecifyMessage: "%prefix% &cYou must specify a message to send!"
+    SenderFormat: "&8[&6Me &7-> &e%target%&8]&7 %message%"
+    TargetFormat: "&8[&e%sender% &7-> &6Me&8]&7 %message%"
+  Reply:
+    Enabled: true
+    Permission: "globalx.reply.use"
+    NoOneToReplyTo: "%prefix% &cThere is no one to reply to!"
+    NoPermissionMessage: "%prefix% &cYou don't have permission to use this command!"
+    MustSpecifyMessage: "%prefix% &cYou must specify a message to send!"
+    SenderFormat: "&8[&6Me &7-> &e%target%&8]&7 %message%"
+    TargetFormat: "&8[&e%sender% &7-> &6Me&8]&7 %message%"
+
+ChatFiltering:
+  Enabled: true
+  FilteredWords:
+    "shit": "s**t"
+    "fuck": "f**k"
+    "holy": "Result.DENIED"
+
+PlayerFormat:
+  Enabled: true
+  Format:
+    Owner:
+      Chat: "&c[OWNER]&7 %player%: &b%message%"
+      Tab: "&c[OWNER]&7 %player%&r [%luckperms_suffix%]"
+      Causes:
+        - "[group] owner" # group, permission
+
+Alerts:
+  Enabled: true
+  Permission: "globalx.alert.use"
+  NoPermission: "%prefix% &cYou don't have permission to use this command!"
+  WrongUsage: "%prefix% &cWrong usage! Correct usage: /alert <group> <message>"
+  InvalidGroup: "%prefix% &cThat server group doesn't exist!"
+  MustSpecifyMessage: "%prefix% &cYou must specify a message to send!"
+  Format: "%prefix% &c[ALERT]&7 %player%&7: &f%message%"
+  Groups:
+    bedwars: ["BedWars-Lobby*", "Bedwars-game-*"] # All of the servers that starts with "BedWars-Lobby" or "Bedwars-Game-"
+    arena: ["arena"] # Only the server "arena"
+    test: ["***", "arena"] # All Servers except arena

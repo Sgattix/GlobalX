@@ -2,3 +2,4 @@ rootProject.name = 'GlobalX'
 
 include 'Velocity'
 include 'spigot'
+include 'Bungee'
