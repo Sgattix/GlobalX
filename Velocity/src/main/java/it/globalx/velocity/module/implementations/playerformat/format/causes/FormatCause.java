@@ -1,7 +1,7 @@
 package it.globalx.velocity.module.implementations.playerformat.format.causes;
 
 import com.velocitypowered.api.proxy.Player;
-import it.globalx.velocity.module.implementations.playerformat.format.causes.type.FormatCausesType;
+import it.globalx.proxy.playerformat.FormatCausesType;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;

@@ -1,13 +1,13 @@
 package it.globalx.velocity.module.implementations.chatfiltering;
 
 import dev.dejvokep.boostedyaml.block.implementation.Section;
+import it.globalx.proxy.chatfiltering.check.implementation.badwords.BadWordsCheck;
+import it.globalx.proxy.chatfiltering.check.implementation.badwords.word.BadWord;
+import it.globalx.proxy.chatfiltering.check.implementation.badwords.word.action.IntentAction;
+import it.globalx.proxy.chatfiltering.check.implementation.domain.DomainCheck;
+import it.globalx.proxy.chatfiltering.utils.FilterUtils;
 import it.globalx.velocity.module.Module;
-import it.globalx.velocity.module.implementations.chatfiltering.check.implementation.badwords.BadWordsCheck;
-import it.globalx.velocity.module.implementations.chatfiltering.check.implementation.badwords.word.BadWord;
-import it.globalx.velocity.module.implementations.chatfiltering.check.implementation.badwords.word.action.IntentAction;
-import it.globalx.velocity.module.implementations.chatfiltering.check.implementation.domain.DomainCheck;
 import it.globalx.velocity.module.implementations.chatfiltering.listener.ChatFilterListener;
-import it.globalx.velocity.module.implementations.chatfiltering.utils.FilterUtils;
 import lombok.Getter;
 
 import java.util.HashSet;
@@ -43,7 +43,7 @@ public class ChatFilteringModule extends Module {
         badWordsCheck = new BadWordsCheck(badWords);
         domainCheck = new DomainCheck();
 
-        FilterUtils filterUtils = new FilterUtils(this);
+        FilterUtils filterUtils = new FilterUtils(badWordsCheck, domainCheck);
 
         plugin().getProxyServer().getEventManager().register(plugin(), new ChatFilterListener(filterUtils));
     }

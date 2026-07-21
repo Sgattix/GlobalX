@@ -19,6 +19,8 @@ repositories {
 }
 
 dependencies {
+    implementation project(":ProxyShared")
+
     compileOnly "net.md-5:bungeecord-api:1.21-R0.4"
 
     compileOnly 'org.projectlombok:lombok:1.18.34'

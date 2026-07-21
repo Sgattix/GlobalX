@@ -6,7 +6,7 @@ import co.aikar.commands.annotation.CommandCompletion;
 import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.HelpCommand;
 import it.globalx.bungee.module.implementations.privatemessages.PrivateMessagesModule;
-import it.globalx.bungee.module.implementations.privatemessages.utils.PrivateMessageUtils;
+import it.globalx.proxy.privatemessages.PrivateMessageUtils;
 import it.globalx.bungee.utils.ChatUtils;
 import lombok.RequiredArgsConstructor;
 import net.md_5.bungee.api.connection.ProxiedPlayer;

@@ -1,8 +1,8 @@
 package it.globalx.bungee.module.implementations.chatfiltering.listener;
 
-import it.globalx.bungee.module.implementations.chatfiltering.check.result.CheckResult;
-import it.globalx.bungee.module.implementations.chatfiltering.utils.FilterUtils;
 import it.globalx.bungee.utils.PendingChatMessages;
+import it.globalx.proxy.chatfiltering.check.result.CheckResult;
+import it.globalx.proxy.chatfiltering.utils.FilterUtils;
 import lombok.RequiredArgsConstructor;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.ChatEvent;

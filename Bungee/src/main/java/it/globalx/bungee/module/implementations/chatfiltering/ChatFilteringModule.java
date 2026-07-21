@@ -2,12 +2,12 @@ package it.globalx.bungee.module.implementations.chatfiltering;
 
 import dev.dejvokep.boostedyaml.block.implementation.Section;
 import it.globalx.bungee.module.Module;
-import it.globalx.bungee.module.implementations.chatfiltering.check.implementation.badwords.BadWordsCheck;
-import it.globalx.bungee.module.implementations.chatfiltering.check.implementation.badwords.word.BadWord;
-import it.globalx.bungee.module.implementations.chatfiltering.check.implementation.badwords.word.action.IntentAction;
-import it.globalx.bungee.module.implementations.chatfiltering.check.implementation.domain.DomainCheck;
 import it.globalx.bungee.module.implementations.chatfiltering.listener.ChatFilterListener;
-import it.globalx.bungee.module.implementations.chatfiltering.utils.FilterUtils;
+import it.globalx.proxy.chatfiltering.check.implementation.badwords.BadWordsCheck;
+import it.globalx.proxy.chatfiltering.check.implementation.badwords.word.BadWord;
+import it.globalx.proxy.chatfiltering.check.implementation.badwords.word.action.IntentAction;
+import it.globalx.proxy.chatfiltering.check.implementation.domain.DomainCheck;
+import it.globalx.proxy.chatfiltering.utils.FilterUtils;
 import lombok.Getter;
 import net.md_5.bungee.api.ProxyServer;
 
@@ -44,7 +44,7 @@ public class ChatFilteringModule extends Module {
         badWordsCheck = new BadWordsCheck(badWords);
         domainCheck = new DomainCheck();
 
-        FilterUtils filterUtils = new FilterUtils(this);
+        FilterUtils filterUtils = new FilterUtils(badWordsCheck, domainCheck);
 
         ProxyServer.getInstance().getPluginManager().registerListener(plugin(), new ChatFilterListener(filterUtils));
     }

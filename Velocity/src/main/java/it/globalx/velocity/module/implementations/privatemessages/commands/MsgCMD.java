@@ -6,8 +6,8 @@ import co.aikar.commands.annotation.CommandCompletion;
 import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.HelpCommand;
 import com.velocitypowered.api.proxy.Player;
+import it.globalx.proxy.privatemessages.PrivateMessageUtils;
 import it.globalx.velocity.module.implementations.privatemessages.PrivateMessagesModule;
-import it.globalx.velocity.module.implementations.privatemessages.utils.PrivateMessageUtils;
 import it.globalx.velocity.utils.ChatUtils;
 import lombok.RequiredArgsConstructor;
 

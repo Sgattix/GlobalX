@@ -1,7 +1,7 @@
 package it.globalx.bungee.module.implementations.staffchat.listener;
 
 import it.globalx.bungee.module.implementations.staffchat.StaffChatModule;
-import it.globalx.bungee.module.implementations.staffchat.utils.StaffChatUtils;
+import it.globalx.proxy.staffchat.StaffChatUtils;
 import it.globalx.bungee.utils.ChatUtils;
 import lombok.RequiredArgsConstructor;
 import net.md_5.bungee.api.ProxyServer;

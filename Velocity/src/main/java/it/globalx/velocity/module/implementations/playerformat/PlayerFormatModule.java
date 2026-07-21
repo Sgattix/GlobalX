@@ -1,10 +1,10 @@
 package it.globalx.velocity.module.implementations.playerformat;
 
 import dev.dejvokep.boostedyaml.block.implementation.Section;
+import it.globalx.proxy.playerformat.FormatCausesType;
 import it.globalx.velocity.module.Module;
 import it.globalx.velocity.module.implementations.playerformat.format.PlayerFormat;
 import it.globalx.velocity.module.implementations.playerformat.format.causes.FormatCause;
-import it.globalx.velocity.module.implementations.playerformat.format.causes.type.FormatCausesType;
 import it.globalx.velocity.module.implementations.playerformat.listener.FormatListener;
 import it.globalx.velocity.module.implementations.playerformat.manager.FormatManager;
 import lombok.Getter;

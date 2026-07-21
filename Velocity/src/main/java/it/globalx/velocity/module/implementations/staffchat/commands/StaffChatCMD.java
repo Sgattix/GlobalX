@@ -4,8 +4,8 @@ import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Default;
 import com.velocitypowered.api.proxy.Player;
+import it.globalx.proxy.staffchat.StaffChatUtils;
 import it.globalx.velocity.module.implementations.staffchat.StaffChatModule;
-import it.globalx.velocity.module.implementations.staffchat.utils.StaffChatUtils;
 import it.globalx.velocity.utils.ChatUtils;
 import lombok.RequiredArgsConstructor;
 

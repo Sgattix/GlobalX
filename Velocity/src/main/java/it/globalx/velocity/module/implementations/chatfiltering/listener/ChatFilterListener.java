@@ -3,8 +3,8 @@ package it.globalx.velocity.module.implementations.chatfiltering.listener;
 import com.velocitypowered.api.event.PostOrder;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.player.PlayerChatEvent;
-import it.globalx.velocity.module.implementations.chatfiltering.check.result.CheckResult;
-import it.globalx.velocity.module.implementations.chatfiltering.utils.FilterUtils;
+import it.globalx.proxy.chatfiltering.check.result.CheckResult;
+import it.globalx.proxy.chatfiltering.utils.FilterUtils;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

@@ -4,7 +4,7 @@ import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Default;
 import it.globalx.bungee.module.implementations.staffchat.StaffChatModule;
-import it.globalx.bungee.module.implementations.staffchat.utils.StaffChatUtils;
+import it.globalx.proxy.staffchat.StaffChatUtils;
 import it.globalx.bungee.utils.ChatUtils;
 import lombok.RequiredArgsConstructor;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
